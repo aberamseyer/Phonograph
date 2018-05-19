@@ -21,6 +21,7 @@ import com.kabouzeid.gramophone.ui.fragments.player.MiniPlayerFragment;
 import com.kabouzeid.gramophone.ui.fragments.player.NowPlayingScreen;
 import com.kabouzeid.gramophone.ui.fragments.player.card.CardPlayerFragment;
 import com.kabouzeid.gramophone.ui.fragments.player.flat.FlatPlayerFragment;
+import com.kabouzeid.gramophone.ui.fragments.player.full.FullPlayerFragment;
 import com.kabouzeid.gramophone.util.PreferenceUtil;
 import com.kabouzeid.gramophone.util.ViewUtil;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -64,6 +65,10 @@ public abstract class AbsSlidingMusicPanelActivity extends AbsMusicServiceActivi
                 fragment = new FlatPlayerFragment();
                 break;
             case CARD:
+                fragment = new CardPlayerFragment();
+                break;
+            case FULL:
+                fragment = new FullPlayerFragment();
             default:
                 fragment = new CardPlayerFragment();
                 break;

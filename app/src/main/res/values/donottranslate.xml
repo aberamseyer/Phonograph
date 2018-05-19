@@ -18,6 +18,7 @@
 
     <string name="card">Card</string>
     <string name="flat">Flat</string>
+    <string name="full">Full</string>
 
     <string-array name="donation_ids" translatable="false">
         <item>donation_1</item>

@@ -155,10 +155,17 @@ public final class PreferenceUtil {
 
     public final NowPlayingScreen getNowPlayingScreen() {
         int id = mPreferences.getInt(NOW_PLAYING_SCREEN_ID, 0);
-        for (NowPlayingScreen nowPlayingScreen : NowPlayingScreen.values()) {
-            if (nowPlayingScreen.id == id) return nowPlayingScreen;
+        NowPlayingScreen selected = NowPlayingScreen.values()[id];
+        switch(selected) {
+            case CARD:
+                return NowPlayingScreen.CARD;
+            case FLAT:
+                return NowPlayingScreen.FLAT;
+            case FULL:
+                return NowPlayingScreen.FULL;
+            default:
+                return NowPlayingScreen.CARD;
         }
-        return NowPlayingScreen.CARD;
     }
 
     @SuppressLint("CommitPrefEdits")

@@ -1,4 +1,4 @@
-package com.kabouzeid.gramophone.ui.fragments.player.flat;
+package com.kabouzeid.gramophone.ui.fragments.player.full;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -56,8 +56,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbumCoverFragment.Callbacks, SlidingUpPanelLayout.PanelSlideListener {
-    public static final String TAG = FlatPlayerFragment.class.getSimpleName();
+public class FullPlayerFragment extends AbsPlayerFragment implements PlayerAlbumCoverFragment.Callbacks, SlidingUpPanelLayout.PanelSlideListener {
+    public static final String TAG = FullPlayerFragment.class.getSimpleName();
 
     private Unbinder unbinder;
 
@@ -78,7 +78,7 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
     private int lastColor;
 
-    private FlatPlayerPlaybackControlsFragment playbackControlsFragment;
+    private FullPlayerPlaybackControlsFragment playbackControlsFragment;
     private PlayerAlbumCoverFragment playerAlbumCoverFragment;
 
     private LinearLayoutManager layoutManager;
@@ -221,7 +221,7 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
     }
 
     private void setUpSubFragments() {
-        playbackControlsFragment = (FlatPlayerPlaybackControlsFragment) getChildFragmentManager().findFragmentById(R.id.playback_controls_fragment);
+        playbackControlsFragment = (FullPlayerPlaybackControlsFragment) getChildFragmentManager().findFragmentById(R.id.playback_controls_fragment);
         playerAlbumCoverFragment = (PlayerAlbumCoverFragment) getChildFragmentManager().findFragmentById(R.id.player_album_cover_fragment);
 
         playerAlbumCoverFragment.setCallbacks(this);
@@ -448,9 +448,9 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
     }
 
     private static abstract class BaseImpl implements Impl {
-        protected FlatPlayerFragment fragment;
+        protected FullPlayerFragment fragment;
 
-        public BaseImpl(FlatPlayerFragment fragment) {
+        public BaseImpl(FullPlayerFragment fragment) {
             this.fragment = fragment;
         }
 
@@ -485,7 +485,7 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         MediaEntryViewHolder currentSongViewHolder;
         Song currentSong = Song.EMPTY_SONG;
 
-        public PortraitImpl(FlatPlayerFragment fragment) {
+        public PortraitImpl(FullPlayerFragment fragment) {
             super(fragment);
         }
 
@@ -562,7 +562,7 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
     @SuppressWarnings("ConstantConditions")
     private static class LandscapeImpl extends BaseImpl {
-        public LandscapeImpl(FlatPlayerFragment fragment) {
+        public LandscapeImpl(FullPlayerFragment fragment) {
             super(fragment);
         }
 

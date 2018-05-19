@@ -2,6 +2,7 @@ package com.kabouzeid.gramophone.ui.fragments.player.card;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -273,6 +274,7 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         layoutManager.scrollToPositionWithOffset(MusicPlayerRemote.getPosition() + 1, 0);
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void updateIsFavorite() {
         if (updateIsFavoriteTask != null) updateIsFavoriteTask.cancel(false);
         updateIsFavoriteTask = new AsyncTask<Song, Void, Boolean>() {
@@ -302,6 +304,7 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         }.execute(MusicPlayerRemote.getCurrentSong());
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void updateLyrics() {
         if (updateLyricsAsyncTask != null) updateLyricsAsyncTask.cancel(false);
         final Song song = MusicPlayerRemote.getCurrentSong();
